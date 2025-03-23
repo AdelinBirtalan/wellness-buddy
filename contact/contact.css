@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Press Start 2P", system-ui;
+    color: rgb(0, 242, 255);
+    background-image: url(../assets/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This keeps the background fixed during scrolling */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 70rem;
+    height: 50rem;
+    margin-top: 5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgb(0, 242, 255);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.7);
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.header h1 {
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.7);
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 4px;
+    background-color: rgb(0, 242, 255);
+    bottom: -15px;
+    left: -5%;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.7);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5rem;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.input-container label {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    text-shadow: 0 0 5px rgba(0, 242, 255, 0.7);
+    align-self: flex-start;
+    margin-left: 22%;
+}
+
+.input-container input, 
+.input-container textarea {
+    width: 60%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgb(0, 242, 255);
+    color: rgb(0, 242, 255);
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-container input {
+    height: 3rem;
+}
+
+.input-container textarea {
+    resize: none;
+    height: 200px;
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.9);
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgba(0, 42, 55, 0.5);
+}
+
+
+.submit-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    border: 2px solid rgb(0, 242, 255);
+    color: rgb(0, 242, 255);
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.7);
+    transform: translateY(-3px);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+    }
+}
+
+.container {
+    animation: glow 3s infinite;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0, 242, 255, 0.3);
+    animation: scanline 6s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+}
+
+::placeholder {
+    color: rgba(0, 242, 255, 0.5);
+    opacity: 1;
+}
+
+.back-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+    border: 2px solid rgb(0, 242, 255);
+    color: rgb(0, 242, 255);
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.back-btn::before {
+    content: "←";
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.7);
+    transform: translateX(-3px);
+}
+
+.back-btn:active {
+    transform: translateX(1px);
+}
+
+.success-message, .error-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.7rem;
+    text-align: center;
+    width: 60%;
+    border: 2px solid;
+    animation: blink 1.5s infinite;
+}
+  
+.success-message {
+    color: rgb(0, 255, 85);
+    border-color: rgb(0, 255, 85);
+    background-color: rgba(0, 255, 85, 0.1);
+}
+  
+.error-message {
+    color: rgb(255, 0, 85);
+    border-color: rgb(255, 0, 85);
+    background-color: rgba(255, 0, 85, 0.1);
+}
+  
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px currentColor;
+    }
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 5px currentColor;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+        height: auto;
+        min-height: 40rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-container {
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
+    
+    .input-container input, 
+    .input-container textarea {
+        width: 90%;
+    }
+    
+    .input-container label {
+        margin-left: 5%;
+        font-size: 0.7rem;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header h1::after {
+        bottom: -10px;
+    }
+    
+    .submit-btn {
+        font-size: 0.7rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.6rem;
+    }
+    
+    .success-message, .error-message {
+        width: 90%;
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+    }
+    
+    .container {
+        width: 95%;
+        margin-top: 1rem;
+        border-width: 1px;
+    }
+    
+    .header {
+        margin-top: 3rem;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .input-container {
+        margin-top: 2rem;
+    }
+    
+    .input-container label {
+        font-size: 0.6rem;
+    }
+    
+    .input-container input {
+        height: 2.5rem;
+        padding: 0.7rem;
+        font-size: 0.6rem;
+    }
+    
+    .input-container textarea {
+        padding: 0.7rem;
+        font-size: 0.6rem;
+        height: 150px;
+    }
+    
+    .back-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.55rem;
+    }
+    
+    .back-btn::before {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        height: auto;
+        max-height: 90vh;
+    }
+    
+    .input-container {
+        margin-top: 2rem;
+    }
+    
+    .input-container textarea {
+        height: 100px;
+    }
+}
+
+
+@media (orientation: landscape) {
+    body {
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+    
+    .container {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+    }
+    
+    .container {
+        margin: 0.5rem auto;
+        max-height: 95vh;
+    }
+    
+    .header {
+        margin-top: 1rem;
+    }
+    
+    .input-container {
+        margin-top: 1.5rem;
+    }
+    
+    .input-container label {
+        margin-top: 0.8rem;
+    }
+    
+    .input-container input {
+        height: 2rem;
+        margin-top: 0.3rem;
+    }
+    
+    .input-container textarea {
+        height: 80px;
+        margin-top: 0.3rem;
+    }
+    
+    .submit-btn {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}

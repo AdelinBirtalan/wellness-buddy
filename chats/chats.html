@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="chats.css" />
+    <title>Wellness Buddy - Recipe Finder</title>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h1>Recipe Finder</h1>
+        <a href="../index.html"><button class="back-btn">← Back</button></a>
+      </div>
+
+      <div class="ingredients-panel">
+        <h2>What's in your kitchen?</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="ingredient-input"
+            placeholder="Type an ingredient..."
+          />
+          <button id="add-ingredient" class="add-btn">Add</button>
+        </div>
+        <div class="ingredients-list">
+          <ul id="selected-ingredients"></ul>
+        </div>
+        <div class="action-buttons">
+          <button id="find-recipes" class="find-btn">Find Recipes</button>
+          <button id="clear-ingredients" class="clear-btn">Clear All</button>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <div class="message ai-message">
+          <div class="message-content">
+            Welcome to Recipe Finder! Add the ingredients you have in your
+            kitchen, and I'll suggest recipes you can make with them.
+          </div>
+        </div>
+      </div>
+
+      <div class="loader" id="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+
+    <audio id="hoverSound" src="../assets/hover-sound.mp3"></audio>
+    <audio id="clickSound" src="../assets/select-sound.mp3"></audio>
+    <script src="chats.js"></script>
+  </body>
+</html>
