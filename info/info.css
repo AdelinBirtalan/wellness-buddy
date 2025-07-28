@@ -3,18 +3,21 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Press Start 2P", system-ui;
     color: rgb(0, 242, 255);
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(../assets/background.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
+    padding: 2rem 0;
 }
 
 .container {
@@ -23,6 +26,8 @@ body {
     width: 80%;
     padding: 2rem;
     animation: glow 2s infinite;
+    position: relative;
+    margin: auto;
 }
 
 @keyframes glow {
@@ -69,6 +74,7 @@ section a:hover {
     background-color: transparent;
     border: 2px solid rgb(0, 242, 255);
     color: rgb(0, 242, 255);
+    font-family: "Press Start 2P", system-ui;
     font-size: 0.7rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -79,6 +85,7 @@ section a:hover {
 }
 
 .back-btn::before {
+    content: "←";
     margin-right: 0.5rem;
     font-size: 0.8rem;
 }
@@ -110,8 +117,7 @@ section a:hover {
 
 @media (max-width: 768px) {
     body {
-        height: auto;
-        min-height: 100vh;
+        padding: 1rem 0;
     }
     
     .container {
@@ -137,6 +143,10 @@ section a:hover {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 0.5rem 0;
+    }
+    
     .container {
         width: 100%;
         padding: 0.8rem;
@@ -148,5 +158,35 @@ section a:hover {
     
     section {
         line-height: 1.6;
+    }
+}
+
+@media (orientation: landscape) {
+    body {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem 0;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .header {
+        margin-bottom: 1.5rem;
+    }
+    
+    section {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    
+    .back-btn {
+        top: 0.8rem;
+        left: 0.8rem;
     }
 }

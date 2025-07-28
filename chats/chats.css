@@ -9,6 +9,9 @@ body {
   color: rgb(0, 242, 255);
   line-height: 1.6;
   background-image: url(../assets/background.jpg);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .chat-container {
@@ -19,7 +22,8 @@ body {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 85vh;
+  min-height: calc(100vh - 4rem);
+  max-height: calc(100vh - 4rem);
 }
 
 .chat-header {
@@ -27,6 +31,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
 .chat-header h1 {
@@ -55,6 +60,7 @@ body {
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
 .ingredients-panel h2 {
@@ -166,6 +172,7 @@ body {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .message {
@@ -195,6 +202,7 @@ body {
   display: none;
   justify-content: center;
   margin-top: 1rem;
+  flex-shrink: 0;
 }
 
 .loader.active {
@@ -245,72 +253,156 @@ body {
   background: rgba(0, 242, 255, 0.7);
 }
 
-
-
 @media (max-width: 1024px) {
-    .chat-container {
-        max-width: 90%;
-        height: 90vh;
-    }
-    
-    .chat-header h1 {
-        font-size: 1.3rem;
-    }
+  .chat-container {
+    max-width: 90%;
+    min-height: calc(100vh - 2rem);
+    max-height: calc(100vh - 2rem);
+    margin: 1rem auto;
+  }
+  
+  .chat-header h1 {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .chat-container {
-        margin: 1rem auto;
-        padding: 1rem;
-    }
-    
-    .ingredients-panel {
-        padding: 0.8rem;
-    }
-    
-    #ingredient-input {
-        padding: 0.6rem;
-        font-size: 0.7rem;
-    }
-    
-    .add-btn, .find-btn, .clear-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.7rem;
-    }
-    
-    .message {
-        font-size: 0.7rem;
-    }
+  .chat-container {
+    margin: 1rem;
+    padding: 1rem;
+    min-height: calc(100vh - 2rem);
+    max-height: calc(100vh - 2rem);
+  }
+  
+  .ingredients-panel {
+    padding: 0.8rem;
+  }
+  
+  #ingredient-input {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .add-btn, .find-btn, .clear-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  .message {
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .chat-container {
-        height: auto;
-        min-height: 100vh;
-    }
-    
-    .chat-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .back-btn {
-        position: static;
-        width: fit-content;
-    }
-    
-    .input-group {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .add-btn {
-        margin-left: 0;
-        width: fit-content;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .chat-container {
+    margin: 0.5rem;
+    padding: 0.8rem;
+    min-height: calc(100vh - 1rem);
+    max-height: calc(100vh - 1rem);
+  }
+  
+  .chat-header {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .back-btn {
+    position: static;
+    width: fit-content;
+  }
+  
+  .ingredients-panel {
+    margin-bottom: 1rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .add-btn {
+    margin-left: 0;
+    width: fit-content;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .message {
+    font-size: 0.8rem;
+    max-width: 90%;
+    padding: 1rem;
+    line-height: 1.6;
+  }
+}
+
+
+@media (max-width: 1200px) and (max-height: 600px) and (orientation: landscape) {
+  .chat-container {
+    margin: 0.25rem;
+    padding: 0.5rem;
+    min-height: calc(100vh - 0.5rem);
+    max-height: calc(100vh - 0.5rem);
+  }
+  
+  .chat-header {
+    margin-bottom: 0.5rem;
+  }
+  
+  .chat-header h1 {
+    font-size: 1rem;
+  }
+  
+  .ingredients-panel {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ingredients-panel h2 {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ingredients-list {
+    max-height: 100px;
+  }
+  
+  .input-group {
+    margin-bottom: 0.5rem;
+  }
+  
+  #ingredient-input {
+    padding: 0.4rem;
+    font-size: 0.6rem;
+  }
+  
+  .add-btn, .find-btn, .clear-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.6rem;
+  }
+  
+  .back-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .message {
+    font-size: 0.7rem;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.6rem;
+    max-width: 85%;
+    line-height: 1.5;
+  }
+  
+  .chat-messages {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .loader {
+    margin-top: 0.5rem;
+  }
 }
